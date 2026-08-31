@@ -1,10 +1,37 @@
-👁️ RetinoNet-APTOSAn end-to-end deep learning pipeline built using TensorFlow/Keras to analyze and classify retinal fundus images from the APTOS 2019 Blindness Detection challenge. The model handles severe class imbalance using SMOTE and categorizes images into five severity stages of Diabetic Retinopathy (DR).  📌 FeaturesData Preprocessing & EDA: Visualizes class distributions and sample images across all 5 severity levels.  Class Balancing via SMOTE: Applies Synthetic Minority Over-sampling Technique (SMOTE) to flatten image vectors, balancing minority severity classes prior to model training.  Custom CNN Architecture: Built with Keras Sequential using multi-layer Convolutional (Conv2D), Pooling (MaxPooling2D), Dropout, and Dense layers.  Detailed Metrics Callback: Custom Keras callback evaluating Quadratic Weighted Kappa (QWK), Balanced Accuracy, Macro F1, Macro Recall, and per-class metrics live during training.  Automated Checkpoints: Saves the model with the best validation accuracy (best_model.keras) and utilizes Early Stopping.  📊 Severity Classification ScaleClass LabelSeverity Level0No DR1Mild2Moderate3Severe4Proliferative DR🚀 Quick Start1. RequirementsEnsure you have Python 3.10+ and the required packages installed:  Bashpip install tensorflow keras numpy pandas matplotlib seaborn scikit-learn imbalanced-learn opencv-python
-2. Dataset StructurePlace your APTOS 2019 dataset files in the target directory structure:  Plaintext/kaggle/input/aptos2019/
-├── train_1.csv
-├── valid.csv
-├── test.csv
-└── train_images/
-    └── train_images/
-        ├── <id_code>.png
-        └── ...
-3. ExecutionRun the Jupyter Notebook APTOS_2019_diabetic_retinopathy_classification.ipynb to execute the preprocessing, SMOTE balancing, CNN model training, and evaluation steps.  📈 Model Architecture & OutputInput Size: $100 \times 100 \times 3$  Output: 5-class Softmax probabilities  Loss Function: Categorical Cross-Entropy  Optimizer: Adam  Primary Evaluation Metric: Quadratic Weighted Kappa (QWK)  
+# 👁️ RetinoNet-APTOS
+
+An end-to-end deep learning pipeline built using TensorFlow/Keras to analyze and classify retinal fundus images from the **APTOS 2019 Blindness Detection** challenge. The model handles severe class imbalance using SMOTE and categorizes images into five severity stages of Diabetic Retinopathy (DR).
+
+---
+
+## 📌 Features
+
+* **Data Preprocessing & EDA:** Visualizes class distributions and sample images across all 5 severity levels.
+* **Class Balancing via SMOTE:** Applies Synthetic Minority Over-sampling Technique (SMOTE) to flattened image vectors, balancing minority severity classes prior to model training.
+* **Custom CNN Architecture:** Built with Keras `Sequential` using multi-layer Convolutional (`Conv2D`), Pooling (`MaxPooling2D`), Dropout, and Dense layers.
+* **Detailed Metrics Callback:** Custom Keras callback evaluating Quadratic Weighted Kappa (QWK), Balanced Accuracy, Macro F1, Macro Recall, and per-class metrics live during training.
+* **Automated Checkpoints:** Saves the model with the best validation accuracy (`best_model.keras`) and utilizes Early Stopping.
+
+---
+
+## 📊 Severity Classification Scale
+
+| Class Label | Severity Level |
+| :---: | :--- |
+| **0** | No DR |
+| **1** | Mild |
+| **2** | Moderate |
+| **3** | Severe |
+| **4** | Proliferative DR |
+
+---
+
+## 🚀 Quick Start
+
+### 1. Requirements
+
+Ensure you have Python 3.10+ and the required dependencies installed:
+
+```bash
+pip install tensorflow keras numpy pandas matplotlib seaborn scikit-learn imbalanced-learn opencv-python
+
